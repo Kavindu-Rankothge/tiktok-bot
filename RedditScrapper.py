@@ -47,8 +47,11 @@ def add_posts(df, headers):
             'title': post['data']['title'],
             'selftext': post['data']['selftext'],
             'id': post['data']['id'],
+            'score': post['data']['score'],
             'url': post['data']['url']}
-        rows.append(row)
+        # add row if not nsfw
+        if post['data']['over_18'] == False:
+            rows.append(row)
     # removing old posts using id
     if not df.empty:
         temp_rows = []
@@ -58,6 +61,7 @@ def add_posts(df, headers):
         rows = temp_rows
     # adding top comments to new post dataframe
     df_new = pd.DataFrame.from_records(rows)
+    df_new['posted'] = False
     for index, row in df_new.iterrows():
         comments = get_post_comments(row['id'], headers)
         df_new.loc[[index], 'comments'] = pd.Series([comments], index=df_new.index[[index]])
@@ -66,7 +70,8 @@ def add_posts(df, headers):
     df.reset_index(drop=True, inplace=True)
     return df
 
-if __name__ == '__main__':
+# main method in file
+def update_data():
     headers = setup_headers()
     # check if json exist, else create new dataframe
     try:
@@ -76,4 +81,5 @@ if __name__ == '__main__':
     df = add_posts(df, headers)
     # save dataframe to json
     df.to_json('reddit-data.json')
-    print(df)
+    # print(df)
+    return df
