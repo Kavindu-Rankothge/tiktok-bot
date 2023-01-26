@@ -1,0 +1,5 @@
+client=<client_id>
+secret=<secret>
+user=<username>
+password=<password>
+subreddit=<subreddit>
