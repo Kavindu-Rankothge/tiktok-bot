@@ -1,6 +1,8 @@
+# gets list of all lines in file
 with open('constants.txt', 'r') as file:
     lines = file.read().splitlines()
 
+# gets the constant next to the id text
 def find_constant(lines, id):
     index = -1
     for line in lines:
@@ -10,7 +12,7 @@ def find_constant(lines, id):
             return constant
     raise Exception("Constant not found")
 
-
+# constants declared
 CLIENT = find_constant(lines, 'client')
 SECRET = find_constant(lines, 'secret')
 USER = find_constant(lines, 'user')
