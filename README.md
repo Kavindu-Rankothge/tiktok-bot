@@ -8,7 +8,7 @@ This project aims to automate the creation of TikTok videos that reads Reddit po
 2. Edit the video with the post and sound.
 3. Post video using Tiktok API.
 
-## Repo Installation Setup
+## Installation
 1. Clone repository.
 2. Create a personal Reddit application script. Store personal use script and secret token.
 3. Edit the constants.txt file with those tokens and the Reddit account username and password.

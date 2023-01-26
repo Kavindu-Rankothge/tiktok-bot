@@ -1,5 +1,10 @@
-client=<client_id>
-secret=<secret>
-user=<username>
-password=<password>
-subreddit=<subreddit>
+client=<personal_use_token>
+secret=<secret_token>
+user=<reddit_username>
+password=<reddit_password>
+subreddit=lifeofnorman
+background=https://www.youtube.com/watch?v=80REx0FEAsE&t=61s&ab_channel=HUSLLMINE
+
+# Feel free to edit backround video and subreddit
+# Subreddit post should be text post only
+# Background video should longer than 3 minutes optimally
