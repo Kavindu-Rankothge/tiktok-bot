@@ -5,7 +5,10 @@ password=<reddit_password>
 subreddit=outside
 background=https://www.youtube.com/watch?v=80REx0FEAsE&t=61s&ab_channel=HUSLLMINE
 comment=3
+tiktokRatio=0.5625
+# above ratio for 1080x1920
 
 # Feel free to edit backround video and subreddit
 # Subreddit post should be text post only
-# Background video should longer than 3 minutes optimally
+# Background video should be longer than 3 minutes optimally
+# If backgroud video is changed, may need to adjust dimensions in ClipEditor.py

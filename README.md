@@ -17,5 +17,5 @@ This project aims to automate the creation of TikTok videos that reads Reddit po
 4. Run MainSetup.py.
 
 ## Dependencies
-* Python libraries: requests, pandas, playwright, gTTS
+* Python libraries: requests, pandas, playwright, gTTS, moviepy
 * Tested on python v3.11 64-bit

@@ -32,7 +32,7 @@ def get_post_comments(id, headers):
         comments.append(data)
     # sorting and slicing top comments
     comments = sorted(comments, key=lambda i: i['score'], reverse=True) 
-    comments = comments[:int(Constant.COMMENT_NUM)]
+    comments = comments[:Constant.COMMENT_NUM]
     return comments
 
 # adding new posts into dataframe
