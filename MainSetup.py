@@ -1,8 +1,11 @@
 import asyncio
+import os.path
+import Constant
+from ClipEditor import generate_video
+from DownloadAssets import download_video
 from GenerateTTS import save_comment_audios 
 from GetScreenshots import get_screenshots
 from RedditScrapper import update_data
-from ClipEditor import generate_video
 
 # returns top non-used post details from dataframe
 def get_top_post(df):
@@ -10,8 +13,12 @@ def get_top_post(df):
     temp_df = df[df['posted'] == False] 
     return temp_df.iloc[0]
 
-# main method updates dataframe and gets screenshots
+# main method handles all scripts
 if __name__ == '__main__':
+    # checks if background video downloaded, else downloads it
+    if not os.path.isfile('assets/background-video.mp4'):
+        print('Downloading assets...')
+        download_video(Constant.BACKGROUND)
     print('Updating dataframe...')
     df = update_data()
     print(df.head())

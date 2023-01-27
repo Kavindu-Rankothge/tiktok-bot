@@ -1,7 +1,5 @@
 from pytube import YouTube
 
-import Constant
-
 # download youtube video with link
 def download_video(link):
     youtubeObject = YouTube(link)
@@ -10,5 +8,3 @@ def download_video(link):
         youtubeObject.download(filename='background-video.mp4', output_path='assets')
     except:
         raise Exception('Background video not downloaded')
-
-download_video(Constant.BACKGROUND)
