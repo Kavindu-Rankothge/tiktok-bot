@@ -14,7 +14,7 @@ def setup_headers():
     res = requests.post('https://www.reddit.com/api/v1/access_token', auth=auth,
             data=data, headers=headers)
     TOKEN = res.json()['access_token']
-    headers = {**headers, **{'Authorization': f"bearer {TOKEN}"}}
+    headers = {**headers, **{'Authorization': f'bearer {TOKEN}'}}
     return headers
 
 # adding top comments to a post using id
@@ -75,11 +75,11 @@ def update_data():
     headers = setup_headers()
     # check if json exist, else create new dataframe
     try:
-        df = pd.read_json('reddit-data.json')
+        df = pd.read_json('assets/reddit-data.json')
     except:
         df = pd.DataFrame()
     df = add_posts(df, headers)
     # save dataframe to json
-    df.to_json('reddit-data.json')
+    df.to_json('assets/reddit-data.json')
     # print(df)
     return df

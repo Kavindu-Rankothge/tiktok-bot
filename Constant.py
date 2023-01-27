@@ -10,7 +10,7 @@ def find_constant(lines, id):
         if index != -1:
             constant = line[index+len(id)+1:]
             return constant
-    raise Exception("Constant not found")
+    raise Exception('Constant not found')
 
 # constants declared
 CLIENT = find_constant(lines, 'client')

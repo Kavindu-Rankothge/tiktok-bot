@@ -1,13 +1,13 @@
 import asyncio
-import pandas as pd
+from GenerateTTS import save_comment_audios 
 from GetScreenshots import get_screenshots
 from RedditScrapper import update_data
 
 # returns top non-used post details from dataframe
-def get_top_post_id_url(df):
+def get_top_post(df):
     df = df.sort_values('score',ascending = False)
     temp_df = df[df['posted'] == False] 
-    return temp_df.iloc[0]['id'], temp_df.iloc[0]['url']
+    return temp_df.iloc[0]
 
 # main method updates dataframe and gets screenshots
 if __name__ == '__main__':
@@ -15,6 +15,8 @@ if __name__ == '__main__':
     df = update_data()
     print(df.head())
     print('\nGenerating screenshots...')
-    id, url = get_top_post_id_url(df)
-    asyncio.run(get_screenshots(id, url))
+    post = get_top_post(df)
+    asyncio.run(get_screenshots(post['id'], post['url'], post['comments']))
+    print('\nGenerating TTS...')
+    save_comment_audios(post['title'], post['id'], post['comments'])
     print('Done!')
